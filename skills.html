@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Skills & Career</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h2>💡 Skills & Career</h2>
+  <a class="back-btn" href="dashboard.html">⬅ Back</a>
+</header>
+<main>
+  <h3>Select Skills</h3>
+  <button onclick="addSkill('Web Development')">Web Development</button>
+  <button onclick="addSkill('AI/ML')">AI/ML</button>
+  <button onclick="addSkill('Cybersecurity')">Cybersecurity</button>
+
+  <h3>Recommended Projects</h3>
+  <ul id="projects"></ul>
+  <p>Points: <span id="points">0</span></p>
+</main>
+
+<script>
+const student = JSON.parse(localStorage.getItem("student"));
+if(!student) window.location.href="index.html";
+
+function addSkill(skill){
+  if(!student.skills.includes(skill)) student.skills.push(skill);
+  const projectList = {
+    "Web Development":["Portfolio","Blog Platform"],
+    "AI/ML":["Chatbot","Image Classifier"],
+    "Cybersecurity":["Password Manager","Network Scanner"]
+  };
+  const ul = document.getElementById("projects");
+  ul.innerHTML="";
+  projectList[skill].forEach(p=>{
+    let li = document.createElement("li");
+    li.innerText=p;
+    ul.appendChild(li);
+  });
+  student.points+=10;
+  document.getElementById("points").innerText = student.points;
+  localStorage.setItem("student", JSON.stringify(student));
+  alert("10 points added!");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dash-bg">
+<header class="dash-header">
+  <h2 id="welcome"></h2>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</header>
+
+<main class="dash-main">
+  <a class="card" href="emergency.html"><h3>🚨 Emergency</h3><p>SOS, first aid, blood donors</p></a>
+  <a class="card" href="skills.html"><h3>💡 Skills</h3><p>Choose skills & get projects</p></a>
+  <a class="card" href="resources.html"><h3>📚 Resources</h3><p>Notes, PDFs, Events</p></a>
+  <a class="card" href="performance.html"><h3>📈 Performance</h3><p>Scores, badges, attendance</p></a>
+  <a class="card" href="ai_doubt.html"><h3>🤖 AI Doubt</h3><p>Ask questions & get AI response</p></a>
+</main>
+
+<script>
+const student = JSON.parse(localStorage.getItem("student"));
+if(!student) window.location.href="index.html";
+document.getElementById("welcome").innerText = "Hi " + student.name + "!";
+function logout(){
+  localStorage.removeItem("student");
+  window.location.href="index.html";
+}
+</script>
+</body>
+</html>

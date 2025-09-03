@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Doubt</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="ai-bg">
+<header>
+  <h2>🤖 AI Doubt</h2>
+  <a class="back-btn" href="dashboard.html">⬅ Back</a>
+</header>
+<main>
+  <h3>Ask your question</h3>
+  <input type="text" id="question" placeholder="Type your doubt here" style="width: 90%; padding:8px; border-radius:8px;">
+  <button onclick="askDoubt()">Ask AI</button>
+
+  <h3>AI Response</h3>
+  <p id="response"></p>
+</main>
+
+<script>
+const student = JSON.parse(localStorage.getItem("student"));
+if(!student) window.location.href="index.html";
+
+function askDoubt(){
+  const q = document.getElementById("question").value;
+  if(!q) return alert("Please type a question!");
+  // Demo AI response
+  const response = "This is a demo answer for: " + q;
+  document.getElementById("response").innerText = response;
+
+  student.doubts.push({question: q, answer: response});
+  localStorage.setItem("student", JSON.stringify(student));
+}
+</script>
+</body>
+</html>

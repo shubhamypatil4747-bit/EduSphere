@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Performance</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="performance-bg">
+<header>
+  <h2>📈 Performance</h2>
+  <a class="back-btn" href="dashboard.html">⬅ Back</a>
+</header>
+<main>
+  <h3>Exam Scores</h3>
+  <ul id="scores"></ul>
+
+  <h3>Attendance</h3>
+  <p id="attendance"></p>
+
+  <h3>Badges / Points</h3>
+  <p id="badges"></p>
+</main>
+
+<script>
+const student = JSON.parse(localStorage.getItem("student"));
+if(!student) window.location.href="index.html";
+
+// Scores
+const scoresUL = document.getElementById("scores");
+for(let subj in student.performance){
+  let li = document.createElement("li");
+  li.innerText = subj + ": " + student.performance[subj];
+  scoresUL.appendChild(li);
+}
+
+// Attendance
+document.getElementById("attendance").innerText = student.attendance;
+
+// Badges / Points
+document.getElementById("badges").innerText = "Points: " + student.points;
+</script>
+</body>
+</html>

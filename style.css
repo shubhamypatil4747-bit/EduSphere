@@ -1,0 +1,138 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Gradient backgrounds for all pages */
+body.login-bg {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+body.dash-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #89f7fe, #66a6ff);
+  color: black;
+}
+
+body.emergency-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+}
+
+body.skills-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  color: black;
+}
+
+body.resources-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  color: black;
+}
+
+body.performance-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  color: black;
+}
+
+body.ai-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #cfd9df, #e2ebf0);
+  color: black;
+}
+
+/* Header */
+header {
+  background: rgba(0,0,0,0.2);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Buttons */
+.logout-btn, .back-btn {
+  background: #ff4d4d;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+.logout-btn:hover, .back-btn:hover { background: #e60000; }
+
+/* Cards */
+.dash-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+a.card {
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  text-decoration: none;
+  color: black;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+a.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Login box */
+.login-box {
+  background: rgba(255,255,255,0.95);
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.login-box input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.login-box button {
+  background: #667eea;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.login-box button:hover { background: #5640c4; }
+
+main {
+  padding: 20px;
+}
+main button {
+  background: #667eea;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+main button:hover { background: #5640c4; }

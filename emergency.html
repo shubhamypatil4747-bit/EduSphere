@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Emergency</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="emergency-bg">
+<header>
+  <h2>🚨 Emergency</h2>
+  <a class="back-btn" href="dashboard.html">⬅ Back</a>
+</header>
+<main>
+  <button onclick="sendSOS()">Send SOS 🚨</button>
+
+  <h3>First Aid Tips</h3>
+  <ul>
+    <li>CPR: Check breathing & pulse.</li>
+    <li>Burn: Cool with water, apply clean cloth.</li>
+    <li>Fracture: Immobilize & call help.</li>
+  </ul>
+
+  <h3>SOS History</h3>
+  <ul id="sos-history"></ul>
+</main>
+
+<script>
+const student = JSON.parse(localStorage.getItem("student"));
+if(!student) window.location.href="index.html";
+
+function sendSOS(){
+  const time = new Date().toLocaleString();
+  student.sosHistory.push(time);
+  localStorage.setItem("student", JSON.stringify(student));
+  loadHistory();
+  alert("Your SOS request has been sent!");
+}
+
+function loadHistory(){
+  const list = document.getElementById("sos-history");
+  list.innerHTML="";
+  student.sosHistory.forEach(item=>{
+    let li = document.createElement("li");
+    li.innerText = item;
+    list.appendChild(li);
+  });
+}
+loadHistory();
+</script>
+</body>
+</html>
